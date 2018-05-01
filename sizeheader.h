@@ -1,0 +1,1 @@
+int getSize(FILE *);
