@@ -15,29 +15,24 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.user.dto.CombinedModel;
-import com.user.dto.CustomerDto;
-import com.user.dto.FileModel;
 import com.user.dto.LoginModel;
-import com.user.dto.ProductDto;
 import com.user.service.LoginService;
-import com.user.service.ProductService;
+
 
 @Controller
 public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
-	@Autowired
-	private ProductService productService;
+	
 	
 	@RequestMapping(value="/login.html")
 	public String loginPage(Model model) {
 		LoginModel loginModel = new LoginModel();
 		model.addAttribute("customer", loginModel);
-		//model.addAttribute("register",new CustomerDto());
 		return "login.jsp";
 		
 	}
@@ -71,19 +66,14 @@ public class LoginController {
 		
 		}
 	
-	/*@ModelAttribute("categoriesList")
-	   public Map<Integer, String> getCategories() {
-	      Map<Integer, String> categories = new HashMap<Integer, String>();
-	      List<String> list = productService.getAllCategory();
-	      Integer i = 0;
-	      for(String s : list) {
-	    	  categories.put(i++, s);
-	      }
-	      
-	      
-	      return categories;
-	   }*/
-	
+
+	@RequestMapping(value="logout.html")
+	public ModelAndView logOut(HttpSession session) {
+		session.invalidate();
+		ModelAndView modelAndView = new ModelAndView("login.jsp");
+		modelAndView.addObject("customer", new LoginModel());
+		return modelAndView;
+	}
 	
 
 }

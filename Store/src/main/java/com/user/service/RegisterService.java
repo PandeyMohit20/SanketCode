@@ -20,6 +20,7 @@ public class RegisterService {
 		if(!isRegistered) {
 			Customer customer = new Customer();
 			BeanUtils.copyProperties(user, customer);
+			customer.setType(0);
 			customerDao.saveCustomer(customer);
 			return true;
 		}else {

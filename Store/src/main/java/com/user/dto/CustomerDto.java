@@ -5,7 +5,7 @@ package com.user.dto;
 public class CustomerDto {
 	
 
-	private Integer id;
+	//private Integer id;
 
 	private String firstName;
 	private String lastName;
@@ -14,14 +14,14 @@ public class CustomerDto {
 	private String phone;
 	private String password;
 	
-	private Integer type;
+	//private Integer type;
 	private String email;
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+//	public Integer getId() {
+//		return id;
+//	}
+//	public void setId(Integer id) {
+//		this.id = id;
+//	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -58,12 +58,12 @@ public class CustomerDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Integer getType() {
-		return type;
-	}
-	public void setType(Integer type) {
-		this.type = type;
-	}
+//	public Integer getType() {
+//		return type;
+//	}
+//	public void setType(Integer type) {
+//		this.type = type;
+//	}
 	public String getEmail() {
 		return email;
 	}

@@ -20,29 +20,38 @@
 <body>
 <div class="container">
         <div class="card card-container">
-			<form:form method="POST" action="register.html" modelAttribue="register">
-            	<form:label path="firstName">firstName</form:label>
-				<form:input path="firstName" id="firstName" class="form-control" type="text"/>
-				<form:label path="lastName">lastName</form:label>
-				<form:input path="lastName" id="lastName" class="form-control" type="text"/>
-				<form:label path="City">City</form:label>
-				<form:input path="City" id="City" class="form-control" type="text"/>
-				<form:label path="Country">Country</form:label>
-				<form:input path="Country" id="Country" class="form-control" type="text"/>
-				<form:label path="phone">phone</form:label>
-				<form:input path="phone" id="phone" class="form-control" type="text"/>
-            	<form:label path="email">Email</form:label>
-				<form:input path="email" id="email" class="form-control" type="email"/>
-				<form:label path="password">Password</form:label>
-				<form:input path="password" id="password" class="form-control" type="password"/>
+			<form:form method="post" action="register.html" modelAttribute="register">
+
+				
+				First Name: <form:input path="firstName" class="form-control" type="text"/>
+				
+				
+				Last Name: <form:input path="lastName" class="form-control" type="text"/>
+				
+				
+				City: <form:input path="City" class="form-control" type="text"/>
+				
+				
+				Country: <form:input path="Country" class="form-control" type="text"/>
+				
+				
+				Phone: <form:input path="phone" class="form-control" type="text"/>
+				
+				
+				Password: <form:input path="password" class="form-control" type="password"/>
+				
+				
+				Email: <form:input path="email" class="form-control" type="text"/>
+				
+				<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Register</button>
             </form:form>
-            
-          </div>
-          <c:if test="${not empty param.msg}">
+          
+          <c:if test="${not empty error}">
     			<div class = "alert alert-danger">
-    				<strong>Error!</strong>Registration failed try again.
+    				<strong>Error!</strong><c:out value="${error}"></c:out>
     			</div>
-    </c:if>
+    		</c:if>
+          </div>
           </div>
 
 </body>

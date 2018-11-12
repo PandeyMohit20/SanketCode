@@ -1,12 +1,31 @@
-#pList:hover{
-	background-color: rgb(211,211,211);
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-ul{
-	margin: 50px 0 70px 150px;
+.flex-container > div {
+  background-color: #f1f1f1;
+  height:auto;
+  width: 300px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
 }
 
-#pList{
-	padding: 100px;
+.product {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);	
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  
+}
+
+.product > img{
+	background-color:grey;
+}
+.Product-Name{
+	font-size:18px;
 }
 

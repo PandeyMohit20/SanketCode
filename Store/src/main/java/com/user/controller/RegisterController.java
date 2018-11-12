@@ -11,9 +11,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.user.dto.CustomerDto;
-import com.user.dto.LoginModel;
 import com.user.service.RegisterService;
 
 @Controller
@@ -22,24 +22,35 @@ public class RegisterController {
 	RegisterService registerService;
 	
 	@RequestMapping(value="createAccount.html")
-	public String createAccount(Model model) {
-		model.addAttribute("register", new CustomerDto());
-		return "createAccount.jsp";
+	public ModelAndView createAccount() {
+		System.out.println("in register");
+		ModelAndView modelView = new ModelAndView("createAccount.jsp");
+		modelView.addObject("register", new CustomerDto());
+		System.out.println("in register");
+		return modelView;
 		
 	}
 	@RequestMapping(value="register.html",method=RequestMethod.POST)
-	public String register(@Validated @ModelAttribute("register")CustomerDto customer,
-			BindingResult result, ModelMap model,HttpSession session) {
-		
+	public String register(HttpSession session,@ModelAttribute("register")CustomerDto customer) {
+		System.out.println("in register2");
 		boolean status = registerService.registerCustomer(customer);
 		if(status) {
-			session.setAttribute("customer", true);
 			return "index.html";
 		}
 		else {
-			model.addAttribute("customer",new LoginModel());
-			return "redirect:createAccount.html?msg=fail";
+			
+			return "loginfail.html";
 		}
+		
+	}
+	
+	@RequestMapping(value="loginfail.html")
+	public ModelAndView registrationFail() {
+		
+		ModelAndView modelView = new ModelAndView("createAccount.jsp");
+		modelView.addObject("register", new CustomerDto());
+		modelView.addObject("error", "There was an error registering account, please try again");
+		return modelView;
 		
 	}
 	

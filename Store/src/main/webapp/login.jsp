@@ -30,9 +30,9 @@
           
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
             </form:form>
-<!--             <div> -->
-<!--             	<a href="createAccount.html">Create account</a> -->
-<!--           	</div> -->
+            <div>
+            	<a href="createAccount.html">Create account</a>
+          	</div>
             
         
     <c:if test="${not empty param.msg}">

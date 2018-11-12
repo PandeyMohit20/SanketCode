@@ -19,7 +19,20 @@
 <title>Admin</title>
 </head>
 <body>
-
+<header>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class = "navbar-header">
+					<a class="navbar-brand" href="#">OnlineStore</a>
+				</div>
+				<ul class = "nav navbar-nav navbar-right">
+					<li><a href="logout.html" >Logout</a></li>
+					
+				</ul>
+			</div>
+		</nav>
+	</header>
+<section>
 <div class="container">
         <div class="card card-container">
             <p id="profile-name" class="profile-name-card"></p>
@@ -42,12 +55,9 @@
             
             
         
-    <c:if test="${not empty param.msg}">
-    	<div class = "alert alert-danger">
-    		<strong>Error!</strong>Incorrect username or password
-    	</div>
-    </c:if>
+    
     </div>
     </div>
+</section>    
 </body>
 </html>
