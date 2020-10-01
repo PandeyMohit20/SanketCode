@@ -1,2 +1,2 @@
 In this work I was tasked to create the Vistor.java while where the task was to use recursion to go through a queue 
-and to print appropriate information. Everything else in this folder was created by Michael Phipps.
+and to print appropriate information. Everything else in this folder was created by Michael Phipps..
